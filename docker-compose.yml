@@ -1,0 +1,23 @@
+version: '2'
+
+services:
+  logitechmediaserver:
+    image: gaerfield/logitechmediaserver:7.9.1
+    restart: always
+    ports:
+      - 9000:9000
+      - 9090:9090
+      - 3483:3483
+      - 3483:3483/udp
+    environment:
+      # put group-id here, which is allowed to read shared files
+      # get the group id by using the command 'getent group mygroup'
+      - GROUP_ID=116
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      # these mounts allow restarting the server without loosing cache, 
+      # preferences or plugin-data
+      - ./instancedata/prefs:/var/lib/squeezeboxserver
+      - ./logs:/var/log/squeezeboxserver
+      # the source directory needs read-access for the group mygroup
+      - /mnt/shares/media/music:/mnt/music

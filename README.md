@@ -22,7 +22,7 @@ On startup the container will use the group-id the get read-access to your files
 
 ## starting the container
 
-You could:
+You could (see also [docker-compose.yml](docker-compose.yml)):
 
 * either using the image(s) on docker hub
 * or building you're own image
@@ -85,15 +85,15 @@ services:
 
 ## Links
 
- * image on [docker hub](https://hub.docker.com/r/gaerfield/logitechmediaserver/) build by this repo
- * more docker logitechmediaserver repositories:
+ * [gaerfield/logitechmediaserver](https://hub.docker.com/r/gaerfield/logitechmediaserver/): docker hub image build from this repo
+ * related work:
    * [jgoerzen/docker-logitech-media-server](https://github.com/jgoerzen/docker-logitech-media-server)
    * [justifiably/docker-logitechmediaserver](https://github.com/justifiably/docker-logitechmediaserver)
    * [larsks/docker-image-logitech-media-server](https://github.com/larsks/docker-image-logitech-media-server)
- * [Squeezelite](http://wiki.slimdevices.com/index.php/Squeezelite)
  * Download Links:
    * [latest Logitech Media Server](https://www.mysqueezebox.com/download)
    * choose from different packages and versions  [here](http://downloads-origin.slimdevices.com/)
  * Documentation on LogitechMediaServer:
    * [Squeezebox Wiki](http://wiki.slimdevices.com/index.php/Main_Page)
    * [Server's file locations](http://wiki.slimdevices.com/index.php/Logitech_Media_Server_file_locations)
+   * [Squeezelite](http://wiki.slimdevices.com/index.php/Squeezelite) client

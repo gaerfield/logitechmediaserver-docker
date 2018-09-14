@@ -2,7 +2,16 @@ version: '2'
 
 services:
   logitechmediaserver:
+    # Either use one of the docker-hub-images
     image: gaerfield/logitechmediaserver:7.9.1
+    # or build your own image using the github repository with:
+    # - an custom Download_URL as argument and (optional, default is 7.9.1. amd64 - package)
+    # - an custom image-name (optional, default depends on service-name)
+    # build:
+    #   context: https://github.com/gaerfield/logitechmediaserver-docker.git
+    #   args:
+    #     DOWNLOAD_URL: "http://downloads-origin.slimdevices.com/LogitechMediaServer_v7.9.1/logitechmediaserver_7.9.1_amd64.deb"
+    # image: logitechmediaserver:7.9.1
     restart: always
     ports:
       - 9000:9000
@@ -15,7 +24,7 @@ services:
       - GROUP_ID=116
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      # these mounts allow restarting the server without loosing cache, 
+      # these mounts allow restarting the server without loosing cache,
       # preferences or plugin-data
       - ./instancedata/prefs:/var/lib/squeezeboxserver
       - ./logs:/var/log/squeezeboxserver

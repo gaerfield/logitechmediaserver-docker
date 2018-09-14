@@ -1,5 +1,7 @@
 FROM debian:stable-slim
 
+ARG DOWNLOAD_URL=http://downloads-origin.slimdevices.com/LogitechMediaServer_v7.9.1/logitechmediaserver_7.9.1_amd64.deb
+
 ENV DEBIAN_FRONTEND noninteractive
 ENV LOGDIR=/var/log/squeezeboxserver
 ENV INSTANCEDIR_BOOTSTRAP=/var/lib/squeezeboxserver.bootstrap
@@ -42,7 +44,7 @@ ENV LC_CTYPE=${APP_LOCALE}.${APP_CHARSET}
 ENV LC_ALL=${APP_LOCALE}.${APP_CHARSET}
 
 # download and install squeezebox
-RUN    curl -Lsf -o /tmp/lms.deb http://downloads-origin.slimdevices.com/LogitechMediaServer_v7.9.1/logitechmediaserver_7.9.1_amd64.deb \
+RUN    curl -Lsf -o /tmp/lms.deb $DOWNLOAD_URL \
     && dpkg -i /tmp/lms.deb \
     && rm -f /tmp/lms.deb \
     && apt-get clean
